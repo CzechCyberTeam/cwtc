@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+	<head>
+		<title>New instance</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link href="static/bootstrap-5.3.0.min.css" rel="stylesheet">
+	</head>
+	<body class="container">
+		<form action="" method="post" class="card my-5">
+			<div class="row m-3">
+				<h1>Create a new instance</h1>
+				<hr>
+
+				<div class="mb-3">
+					<label for="f_id" class="form-label">Id</label>
+					<input id="f_id" name="id" type="text" value="{{ id }}" class="form-control" required readonly>
+				</div>
+
+				<div class="mb-3">
+					<label for="f_description" class="form-label">Description</label>
+					<input id="f_description" name="description" type="text" class="form-control">
+				</div>
+
+				<div class="mb-3">
+					<label for="f_code" class="form-label">Code to execute</label>
+					<textarea id="f_code" name="code" rows="10" class="form-control" required>{{ example_code }}</textarea>
+				</div>
+
+				<div class="mb-3">
+					<label for="f_config" class="form-label">Config</label>
+					<textarea id="f_config" name="config" rows="10" class="form-control"></textarea>
+					<div class="form-text">Hint: If you provide a URL we will conveniently download the contents for you</div>
+					<div class="form-text">Hint: You can use <a href="https://docs.python.org/3/library/pickle.html" target="_blank">pickle</a> here</div>
+				</div>
+
+				<div>
+					<button type="submit" class="form-control btn btn-primary">Create & Execute</button>
+				</div>
+			</div>
+		</form>
+	</body>
+</html>

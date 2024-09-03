@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+	<head>
+		<title>Detail {{ details.id }}</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link href="static/bootstrap-5.3.0.min.css" rel="stylesheet">
+	</head>
+	<body class="container">
+		<form action="" method="post" class="card my-5">
+			<div class="row m-3">
+				<h1 class="col-10">Instance detail</h1>
+				<div class="col-2"><a href="/" class="float-end btn btn-secondary">Back</a></div>
+				<hr>
+
+				<div class="mb-3">
+					<b>Id:</b>
+					<code id="f_id">{{ details.id }}</code>
+				</div>
+
+				<div class="mb-3">
+					<b>Secret:</b>
+					<code id="f_secret">{{ details.secret }}</code>
+				</div>
+
+				<div class="mb-3">
+					<b>Description:</b>
+					<code id="f_description">{{ details.description }}</code>
+				</div>
+
+				<div class="mb-3">
+					<b>Created:</b>
+					<code id="f_created">{{ details.created }}</code>
+				</div>
+
+				<div class="mb-3">
+					<b>Code:</b>
+					<textarea id="f_code" class="form-control mt-2" rows="10" readonly>{{ instance.code }}</textarea>
+				</div>
+
+				<div class="mb-3">
+					<b>Config:</b>
+					<textarea id="f_config" class="form-control mt-2" rows="10" readonly>{{ instance.config }}</textarea>
+				</div>
+
+				<hr>
+
+				<div class="mb-3">
+					<b>Executed:</b>
+					<code id="f_executed">{{ details.executed }}</code>
+				</div>
+
+				<div class="mb-3">
+					<b>Stdout:</b>
+					<textarea id="f_stdout" class="form-control mt-2" rows="10" readonly>{{ stdout }}</textarea>
+				</div>
+
+				<div class="mb-3">
+					<b>Stderr:</b>
+					<textarea id="f_stderr" class="form-control mt-2" rows="10" readonly>{{ stderr }}</textarea>
+				</div>
+
+				<div class="mb-3">
+					<b>Stats:</b>
+					<textarea id="f_stats" class="form-control mt-2" rows="6" readonly>{{ stats }}</textarea>
+				</div>
+
+				<div>
+					<button type="submit" class="form-control btn btn-primary">Execute again</button>
+				</div>
+			</div>
+		</form>
+	</body>
+</html>

@@ -1,0 +1,15 @@
+diff --git a/service/wasm.py b/service/wasm.py
+index 1dd2c87..97b4824 100644
+--- a/service/wasm.py
++++ b/service/wasm.py
+@@ -120,8 +120,8 @@ def init():
+ def run(id: str):
+ 	global instances
+ 	instance = instances[id] = Instance(id)
+-	init_code = f"import pickle, sys, wasm; instances = wasm.RestrictedUnpickler.loadst(sys.stdin.buffer); instance = instances.get('{id}');"
+-	result = execute_code(init_code + instance.code, instances)
++	init_code = f"import pickle, sys, wasm; instance = wasm.RestrictedUnpickler.loadst(sys.stdin.buffer);"
++	result = execute_code(init_code + instance.code, instances.get(id))
+
+ 	with db.connect() as conn:
+ 		conn.execute("UPDATE instance SET executed = datetime('now'), stdout = ?, stderr = ?, stats = ? WHERE id = ?",

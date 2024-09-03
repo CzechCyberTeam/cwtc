@@ -1,0 +1,12 @@
+version: '3'
+services:
+  app:
+    build:
+      context: ./app
+      dockerfile: Dockerfile
+    ports:
+      - '4567:4567'
+    depends_on:
+      - db
+  db:
+    image: mongo@sha256:20f3adcaffe2193e49dd502c8299b770d49a1e0643e0e9db250d5c127b1e9ed8

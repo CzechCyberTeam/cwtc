@@ -1,0 +1,14 @@
+diff --git a/service/wasm.py b/service/wasm.py
+index 1dd2c87..6f26503 100644
+--- a/service/wasm.py
++++ b/service/wasm.py
+@@ -99,6 +99,9 @@ class Instance:
+ 				except:
+ 					self.config = config
+
++				if isinstance(self.config, Instance):
++					self.config = "NOPE"
++
+ class RestrictedUnpickler(pickle.Unpickler):
+ 	def find_class(self, module, name):
+ 		if module == "wasm" and name == "Instance":

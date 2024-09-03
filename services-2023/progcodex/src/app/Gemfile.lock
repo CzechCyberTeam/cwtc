@@ -1,0 +1,46 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    bcrypt (3.1.19)
+    bson (4.15.0)
+    jwt (2.7.1)
+    mongo (2.19.0)
+      bson (>= 4.14.1, < 5.0.0)
+    multi_json (1.15.0)
+    mustermann (3.0.0)
+      ruby2_keywords (~> 0.0.1)
+    nio4r (2.5.9)
+    puma (6.3.0)
+      nio4r (~> 2.0)
+    rack (2.2.7)
+    rack-protection (3.0.6)
+      rack
+    ruby2_keywords (0.0.5)
+    securerandom (0.2.2)
+    sinatra (3.0.6)
+      mustermann (~> 3.0)
+      rack (~> 2.2, >= 2.2.4)
+      rack-protection (= 3.0.6)
+      tilt (~> 2.0)
+    sinatra-contrib (3.0.6)
+      multi_json
+      mustermann (~> 3.0)
+      rack-protection (= 3.0.6)
+      sinatra (= 3.0.6)
+      tilt (~> 2.0)
+    tilt (2.2.0)
+
+PLATFORMS
+  x86_64-linux-gnu
+
+DEPENDENCIES
+  bcrypt
+  jwt
+  mongo (~> 2)
+  puma
+  securerandom
+  sinatra
+  sinatra-contrib
+
+BUNDLED WITH
+   2.4.13

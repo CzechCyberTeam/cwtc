@@ -1,0 +1,22 @@
+diff --git a/service/main.py b/service/main.py
+index 267924b..c195bf5 100644
+--- a/service/main.py
++++ b/service/main.py
+@@ -25,7 +25,7 @@ def require_auth(allow_localhost=False):
+ 			with db.connect() as conn:
+ 				instance_secret, = conn.execute("SELECT secret FROM instance WHERE id = ?", [ id ]).fetchone()
+ 
+-			if secret == instance_secret or (allow_localhost and flask.request.remote_addr == "127.0.0.1"):
++			if secret == instance_secret or (allow_localhost and flask.request.remote_addr == "127.0.0.1" and secret == "SUPER_SECRET"):
+ 				return endpoint(*args, **kwargs)
+ 			return flask.abort(403)
+ 		return wrapped
+@@ -89,7 +89,7 @@ def api(id):
+ @require_auth(allow_localhost=False)
+ def detail(id):
+ 	id = str(uuid.UUID(id))
+-	details = requests.get(f"http://127.0.0.1:{PORT}/api/{id}").json()
++	details = requests.get(f"http://127.0.0.1:{PORT}/api/{id}?secret=SUPER_SECRET").json()
+ 	instance = wasm.instances.get(id)
+ 
+ 	with db.connect() as conn:

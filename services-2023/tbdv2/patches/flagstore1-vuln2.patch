@@ -1,0 +1,13 @@
+diff --git a/service/main.py b/service/main.py
+index 33f5644..549176a 100644
+--- a/service/main.py
++++ b/service/main.py
+@@ -75,7 +75,7 @@ def api(authenticated: bool, id):
+ 
+ 	if clone_id is not None:
+ 		with db.connect() as conn:
+-			conn.execute("INSERT INTO instance (id, secret, code, description, code, config, created) SELECT ?, ?, code, description, '', '', created FROM instance WHERE id = ?", [ clone_id, clone_id, id ])
++			conn.execute("INSERT INTO instance (id, secret, code, description, code, config, created) SELECT ?, ?, code, '', '', '', created FROM instance WHERE id = ?", [ clone_id, clone_id, id ])
+ 
+ 		clone_log = flask.request.args.get("clone_log", f"Cloned from {id}!")
+ 		clone_log = clone_log[1:] if clone_log[0] == "\n" else clone_log
